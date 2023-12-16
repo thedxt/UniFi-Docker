@@ -1,2 +1,14 @@
 # UniFi-Docker
-UniFi Docker  Compose
+This will spawn everything needed to run a UniFi Network Application in a container including a container for the MongoDB database. Using the [LinuxServer.io UniFi Network Application](https://github.com/linuxserver/docker-unifi-network-application) image and the [official MongoDB](https://github.com/docker-library/mongo) image.
+
+use .env to define your variables
+
+### .env Variables
+ - `CONTAINER_NAME` the name of your UniFi stack. There will be two containers spawned.
+   - The one with `_CORE` appended to it is the LinuxServer.io UniFi Network Application image.
+   - The one with `_DB` appended to it is the official MongoDB image. Currently pinned to version 4.4 as that's the highest UniFi supports.
+ - `MONGO_DBNAME` the name of the MongoDB database. The stats DB will have `_stat` appended to it.
+ - `MONGO_USER` the database user
+ - `MONGO_PASS` the password for the database user
+ - `TIME_ZONE` Time Zone for the UniFi Network Application
+
