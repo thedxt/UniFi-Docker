@@ -1,0 +1,37 @@
+---
+version: "2.1"
+services:
+  unifi-net-app-db:
+    image: mongo:4.4
+    container_name: ${CONTAINER_NAME}_DB
+    environment:
+      - MONGO_USER=${MONGO_USER}
+      - MONGO_PASS=${MONGO_PASS}
+      - MONGO_DBNAME=${MONGO_DBNAME}
+      - MONGO_DBNAMESTAT=${MONGO_DBNAME}_stat
+    volumes:
+      - ./init-mongo.sh:/docker-entrypoint-initdb.d/init-mongo.sh:ro
+      - ./db-data/db:/data/db
+    restart: unless-stopped
+  unifi-net-app-core:
+    image: lscr.io/linuxserver/unifi-network-application:latest
+    container_name: ${CONTAINER_NAME}_CORE
+    depends_on:
+      - unifi-net-app-db
+    environment:
+      - TZ=${TIME_ZONE}
+      - MONGO_USER=${MONGO_USER}
+      - MONGO_PASS=${MONGO_PASS}
+      - MONGO_HOST=${CONTAINER_NAME}_DB
+      - MONGO_PORT=27017
+      - MONGO_DBNAME=${MONGO_DBNAME}
+    volumes:
+      - ./core-data:/config
+    ports:
+      - 3478:3478/udp
+      - 10001:10001/udp
+      - 8080:8080
+      - 8443:8443
+      - 8843:8843
+      - 8880:8880
+    restart: unless-stopped
