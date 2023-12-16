@@ -12,3 +12,4 @@ use .env to define your variables
  - `MONGO_PASS` the password for the database user
  - `TIME_ZONE` Time Zone for the UniFi Network Application
 
+[More detailed documentation](https://thedxt.ca/2023/12/unifi-network-server-with-docker/)
