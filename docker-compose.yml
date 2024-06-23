@@ -1,5 +1,3 @@
----
-version: "2.1"
 services:
   unifi-net-app-db:
     image: mongo:4.4
