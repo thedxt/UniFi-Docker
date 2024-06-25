@@ -13,3 +13,5 @@ use .env to define your variables
  - `TIME_ZONE` Time Zone for the UniFi Network Application
 
 [More detailed documentation](https://thedxt.ca/2023/12/unifi-network-server-with-docker/)
+
+If you have been running my docker compose file for a while it's possible that you are running MongoDB 4.4. Here are the details for [upgrading the Mongo database from 4.4 to 7.0](https://thedxt.ca/2024/06/unifi-mongodb-upgrade/). The database upgrade is not needed on new installs.
