@@ -1,6 +1,6 @@
 services:
   unifi-net-app-db:
-    image: mongo:4.4
+    image: mongo:7.0
     container_name: ${CONTAINER_NAME}_DB
     environment:
       - MONGO_USER=${MONGO_USER}

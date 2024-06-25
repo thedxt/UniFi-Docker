@@ -1,6 +1,6 @@
 set -e
 
-mongo <<EOF
+mongosh <<EOF
 db.getSiblingDB('$MONGO_DBNAME').createUser({
   user: '$MONGO_USER',
   pwd: '$MONGO_PASS',
