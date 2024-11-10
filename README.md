@@ -6,7 +6,7 @@ use .env to define your variables
 ### .env Variables
  - `CONTAINER_NAME` the name of your UniFi stack. There will be two containers spawned.
    - The one with `_CORE` appended to it is the LinuxServer.io UniFi Network Application image.
-   - The one with `_DB` appended to it is the official MongoDB image. Currently pinned to version 4.4 as that's the highest UniFi supports.
+   - The one with `_DB` appended to it is the official MongoDB image. Currently pinned to version 7.0 as that's the highest UniFi supports.
  - `MONGO_DBNAME` the name of the MongoDB database. The stats DB will have `_stat` appended to it.
  - `MONGO_USER` the database user
  - `MONGO_PASS` the password for the database user
